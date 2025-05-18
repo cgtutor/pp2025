@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Моё портфолио{% endblock %}</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        header, footer { background: #f0f0f0; padding: 10px; }
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .project-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .date {
+            font-size: 0.9em;
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Портфолио разработчика</h1>
+        <nav>
+            <a href="/">Главная</a> |
+            <a href="/contacts/">Контакты</a> |
+            <a href="/contact/">Связь</a>
+        </nav>
+    </header>
+
+    <br>
+
+    {% block content %}{% endblock %}
+
+    <br>
+    <footer>
+        &copy; 2025, Моё портфолио
+    </footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h2>Привет! Меня зовут {{ name }}</h2>
+<p>Я {{ job }}.</p>
+
+<hr>
+
+<h3>Мои проекты:</h3>
+
+<div class="projects-container">
+    {% for project in projects %}
+        <div class="project-card">
+            {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+            {% endif %}
+            <h4><a href="{% url 'project_detail' project.pk %}">{{ project.title }}</a></h4>
+            <p>{{ project.description }}</p>
+            {% if project.link %}
+                <p><a href="{{ project.link }}" target="_blank">Перейти к проекту</a></p>
+            {% endif %}
+            <p class="date">Дата создания: {{ project.created_at }}</p>
+        </div>
+    {% empty %}
+        <p>Пока нет проектов.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
